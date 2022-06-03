@@ -1,8 +1,8 @@
-#Software Challenge
+# Software Challenge
 
 This application will be used to validate and modify webtvv files, with both operations available through an api endpoint.
 
-##Architectural Considerations
+## Architectural Considerations
 For this project, I utilized a Spring Boot microservice to build out the RESTful API.  The reason for this decision was 
 due to ease of creation, and Java being utilized by PlutoTV (based on my understanding).  The project structure follows 
 the standard Spring Boot pattern, involving controllers.  The item that is intentionally omitted from this application,
@@ -35,7 +35,7 @@ The validate method is used to validate cue blocks within a provided webvtt file
 * Each cuepoint should adhere to the pattern HH:mm:ss.SSS.
 * The end cuepoint should occur after the start cuepoint.
 
-####Example Payload
+#### Example Payload
 ```
 WEBVTT
  
@@ -51,7 +51,7 @@ WEBVTT
 
 Upon validation, a response is returned that indicates if the webvtt is valid.  In the case that the webvtt is invalid, a list of reasons for invalidity are returned to the client.
 
-####Example Response
+#### Example Response
 ```json
 {
     "message": "Validation issues discovered.",
@@ -67,7 +67,7 @@ Upon validation, a response is returned that indicates if the webvtt is valid.  
 }
 ```
 
-###/edit
+### /edit
 The edit method is used to modify a supplied webvtt file with a set of provided cue points, along with their associated line identifiers.  If the supplied data corresponds to a line containing cue points, those cue points will be altered.
 After modification is executed, validation is performed to return appropriate information to the client prior to utilization of the modified webvtt.
 
